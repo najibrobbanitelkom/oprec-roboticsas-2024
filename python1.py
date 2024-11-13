@@ -1,1 +1,1 @@
-print('test')
+# maaf bg, saya belum selesai, jadi masih kosong
