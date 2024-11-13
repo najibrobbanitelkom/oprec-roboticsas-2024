@@ -1,47 +1,56 @@
-def tambah(x,y):
+def tambah(x, y):
     return x + y
 
-def kurang(x,y):
+def kurang(x, y):
     return x - y
 
-def kali(x,y):
+def kali(x, y):
     return x * y
 
-def bagi(x,y):
+def bagi(x, y):
     if y == 0:
         return "Error! Nilai kedua tidak boleh 0."
     return x / y
 
 print("##===== Calculator in Python =====##")
 print("Pilih operasi:")
-print("[1] Tambah   [2] Kurang")
-print("[3] Kali     [4] Bagi")
+print("[1] +Tambah   [2] -Kurang")
+print("[3] *Kali     [4] /Bagi")
+print("[5] Exit")
 
-chose=int(input("Pilihan : "))
-
-print("##============ Input =============##")
 try:
-    num1 = float(input("Input angka pertama : "))
-    num2 = float(input("Input angka Kedua   : "))
+    chose = 0
+    while chose != 5:
+        print("##================================##")
+        chose = int(input("Pilihan : "))
 
-    if chose == 1:
-        print("Operasi             : Tambah(+)")
-        print("Hasil               :", tambah(num1,num2))
-    elif chose == 2:
-        print("Operasi             : Kurang(-)")
-        print("Hasil               :", kurang(num1,num2))
-    elif chose == 3:
-        print("Operasi             : Kali(*)")
-        print("Hasil               :", kali(num1,num2))
-    elif chose == 4:
-        print("Operasi             : Bagi(/)")
-        if(num2 == 0):
-            print(bagi())
+        if chose == 5:
+            print("Keluar dari program.")
+            break
+        elif chose in [1, 2, 3, 4]:
+            if chose == 1:
+                print("Program (+)")
+            if chose == 2:
+                print("Program (-)")
+            if chose == 3:
+                print("Program (*)")
+            if chose == 4:
+                print("Program (/)")
+            
+            print("##================================##")
+            
+            num1 = float(input("Input angka pertama : "))
+            num2 = float(input("Input angka kedua   : "))
+
+            if chose == 1:
+                print("Hasil               :", tambah(num1, num2))
+            if chose == 2:
+                print("Hasil               :", kurang(num1, num2))
+            if chose == 3:
+                print("Hasil               :", kali(num1, num2))
+            if chose == 4:
+                print("Hasil               :", bagi(num1, num2))
         else:
-            print("Hasil               :", bagi(num1,num2))
-    else:
-        print("Error! Pilihan tidak valid.")
-
+            print("Error! Pilihan tidak valid.")
 except ValueError:
     print("Error! Input tidak valid.")
-
