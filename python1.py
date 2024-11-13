@@ -1,1 +1,1 @@
-print('haii')
+print('test')
