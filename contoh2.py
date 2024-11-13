@@ -1,1 +1,1 @@
-print("haii")
+print("apakah kamu kamu")
