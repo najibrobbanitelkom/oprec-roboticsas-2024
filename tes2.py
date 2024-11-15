@@ -1,1 +1,0 @@
-print('gabisa bisa bang')

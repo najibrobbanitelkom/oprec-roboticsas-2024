@@ -1,2 +1,0 @@
-print("halo")
-print("penambahan")
