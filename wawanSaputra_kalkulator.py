@@ -23,11 +23,8 @@ try:
     while chose != 5:
         print("##================================##")
         chose = int(input("Pilihan : "))
-
-        if chose == 5:
-            print("Keluar dari program.")
-            break
-        elif chose in [1, 2, 3, 4]:
+        
+        if chose==1 or chose==2 or chose==3 or chose==4:
             if chose == 1:
                 print("Program (+)")
             if chose == 2:
@@ -36,9 +33,9 @@ try:
                 print("Program (*)")
             if chose == 4:
                 print("Program (/)")
-            
+                
             print("##================================##")
-            
+                
             num1 = float(input("Input angka pertama : "))
             num2 = float(input("Input angka kedua   : "))
 
@@ -49,7 +46,14 @@ try:
             if chose == 3:
                 print("Hasil               :", kali(num1, num2))
             if chose == 4:
-                print("Hasil               :", bagi(num1, num2))
+                if num2 == 0:
+                    print("Error! Nilai kedua tidak boleh 0.")
+                    continue
+                else:
+                    print("Hasil               :", bagi(num1, num2))
+        elif chose == 5:
+            print("Keluar dari program.")
+            break
         else:
             print("Error! Pilihan tidak valid.")
 except ValueError:
