@@ -38,7 +38,7 @@ class BeriNilai:
         self.thruster.display_start()
 
     def reverse(self):
-        self.thruster.display_start()
+        self.thruster.display_reverse()
 
 
 def main():
