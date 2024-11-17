@@ -20,6 +20,6 @@ def main():
     print("Kurang:", calc.kurang(10,5))
     print("Kali:", calc.kali(10,5))
     print("Bagi:", calc.bagi(10,0))
-
+  
 if __name__ == '__main__':
     main()
