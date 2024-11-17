@@ -10,37 +10,36 @@ class truster:
         print("Nilai pwm Truster2 = ", self.thr2)
         print("Nilai pwm Truster3 = ", self.thr3)
         print("Nilai pwm Truster4 = ", self.thr4)
-    
+
+class pwd():
+    def __init__(self):
+        self.power = truster()
+        
+    def atur(self, value):
+        self.power.thr1 = value
+        self.power.thr2 = value
+        self.power.thr3 = value
+        self.power.thr4 = value
+    def display(self):
+        self.power.display()
+        
 class beriNilai:
     def __init__(self):
-        self.nilai = truster()
+        self.pwd = pwd()
         
     def stop(self):
         print("Truster Stop")
-        self.nilai.thr1 = 1500
-        self.nilai.thr2 = 1500
-        self.nilai.thr3 = 1500
-        self.nilai.thr4 = 1500
-        
-        self.nilai.display()
+        self.pwd.display()
         
     def gerakMaju(self):
         print("Truster Maju")
-        self.nilai.thr1 = 1700
-        self.nilai.thr2 = 1700
-        self.nilai.thr3 = 1700
-        self.nilai.thr4 = 1700
-        
-        self.nilai.display()
+        self.pwd.atur(1700)
+        self.pwd.display()
         
     def gerakMundur(self):
         print("Truster Mundur")
-        self.nilai.thr1 = 1300
-        self.nilai.thr2 = 1300
-        self.nilai.thr3 = 1300
-        self.nilai.thr4 = 1300
-        
-        self.nilai.display()
+        self.pwd.atur(1300)
+        self.pwd.display()
         
 def main():
     beri_Nilai = beriNilai()
