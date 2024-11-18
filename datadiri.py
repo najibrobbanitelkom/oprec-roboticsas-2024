@@ -9,7 +9,9 @@ class Data:
 
 def main():
     datadiri1 = Data("Reynard Elroy Rande", "RPL", "2024")
+    datadiri2 = Data("rafiqah", "RPL", "2024")
     datadiri1.deskripsi_data()
+    datadiri2.deskripsi_data()
 
 if __name__ == '__main__':
     main()
