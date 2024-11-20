@@ -27,10 +27,12 @@ class BeriNilai:
         self.thruster.printNilai()
     
     def gerakMaju(self):
+        self.thruster.set_pwm(1700)
         print("Truster bergerak maju")
         self.thruster.printNilai()
 
     def gerakMundur(self):
+        self.thruster.set_pwm(1300)
         print("Thruster Bergerak mundur")
         self.thruster.printNilai()
 
