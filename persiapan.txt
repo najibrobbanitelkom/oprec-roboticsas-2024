@@ -1,0 +1,13 @@
+Cek apakah sudah install opencv :
+    1. buka Terminal
+    2. Ketik "python3"
+    3. ketik "import cv2"
+    4. ketik "print(cv2.__version__)
+
+Install OpenCV Python : pip install opencv-python
+
+
+kalau belum ada Pip :
+    1. apt-get update
+    2. apt-get -y install python3-pip
+    3. pip3 --version
