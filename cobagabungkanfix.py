@@ -18,7 +18,7 @@ def getkontur(frame, framekontur):
                 benda = "segitiga"
             elif korner == 4:
                 rasio = w / float(h)
-                if  0.9>rasio>1.1:
+                if  0.9<rasio<1.1:
                     benda = "persegi"
                 else:
                     benda = "persegi panjang"
@@ -61,7 +61,7 @@ def main(video):
         detect_color(frame, colors)
 
 
-        frameBlur = cv2.GaussianBlur(frame, (7, 7), 1)
+        frameBlur = cv2.GaussianBlur(frame, (7, 7), 1) 
         frameCanny = cv2.Canny(frameBlur, 50, 70)
 
 
