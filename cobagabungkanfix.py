@@ -78,7 +78,4 @@ def main(video):
 
 if __name__ == "__main__":
     camera = cv2.VideoCapture(0)
-    if not camera.isOpened():
-        print("Tidak dapat membuka kamera.")
-    else:
-        main(camera)
+    main(camera)
