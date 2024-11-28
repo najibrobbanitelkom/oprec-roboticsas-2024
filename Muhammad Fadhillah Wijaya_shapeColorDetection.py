@@ -13,31 +13,35 @@ while(1):
     
     # Reading the video from the 
     # webcam in image frames 
-    _, imageFrame = webcam.read() 
+    ret, imageFrame = webcam.read() 
 
     # Convert the imageFrame in 
     # BGR(RGB color space) to 
     # HSV(hue-saturation-value) 
     # color space 
-    hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
+    hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2RGB) 
 
     # Set range for red color and 
     # define mask 
-    red_lower = np.array([136, 87, 111], np.uint8) 
-    red_upper = np.array([180, 255, 255], np.uint8) 
+    red_lower = np.array([169,0,0], np.uint8) 
+    red_upper = np.array([255,130,255], np.uint8) 
     red_mask = cv2.inRange(hsvFrame, red_lower, red_upper) 
 
     # Set range for green color and 
     # define mask 
-    green_lower = np.array([25, 52, 72], np.uint8) 
-    green_upper = np.array([102, 255, 255], np.uint8) 
+    green_lower = np.array([0,216,32], np.uint8) 
+    green_upper = np.array([184,255,255], np.uint8) 
     green_mask = cv2.inRange(hsvFrame, green_lower, green_upper) 
 
     # Set range for blue color and 
     # define mask 
-    blue_lower = np.array([94, 80, 2], np.uint8) 
-    blue_upper = np.array([120, 255, 255], np.uint8) 
+    blue_lower = np.array([0,0,214], np.uint8) 
+    blue_upper = np.array([27,45,255], np.uint8) 
     blue_mask = cv2.inRange(hsvFrame, blue_lower, blue_upper) 
+
+    yellow_lower = np.array([0,0,170], np.uint8) 
+    yellow_upper = np.array([157,255,255], np.uint8) 
+    yellow_mask = cv2.inRange(hsvFrame, yellow_lower, yellow_upper) 
     
     # Morphological Transform, Dilation 
     # for each color and bitwise_and operator 
@@ -57,6 +61,10 @@ while(1):
     # For blue color
     blue_mask = cv2.dilate(blue_mask, kernel) 
     res_blue = cv2.bitwise_and(imageFrame, imageFrame, 
+                            mask = blue_mask) 
+    
+    yellow_mask = cv2.dilate(yellow_mask, kernel) 
+    res_yellow = cv2.bitwise_and(imageFrame, imageFrame, 
                             mask = blue_mask) 
 
     # Creating contour to track red color
@@ -85,11 +93,6 @@ while(1):
                 rasio = w/float(h)
                 if 0.9 < rasio < 1.1: benda = "Persegi"
                 else: benda = "Persegi Panjang"
-            #elif korner == 5: benda = "Segi lima"
-            #elif korner == 6: benda = "Segi enam"
-            #elif korner == 7: benda = "Segi tujuh"
-            #elif korner == 8: benda = "Segi delapan"
-            #elif korner <= 10000: benda = "Lingkaran"
             else: benda = "Lainnya"
 
             cv2.putText(imageFrame, benda+" MERAH", (x, y), cv2.FONT_HERSHEY_COMPLEX, 0.7, (0,0,255), 2)  
@@ -119,11 +122,6 @@ while(1):
                 rasio = w/float(h)
                 if 0.9 < rasio < 1.1: benda = "Persegi"
                 else: benda = "Persegi Panjang"
-            #elif korner == 5: benda = "Segi lima"
-            #elif korner == 6: benda = "Segi enam"
-            #elif korner == 7: benda = "Segi tujuh"
-            #elif korner == 8: benda = "Segi delapan"
-            #elif korner <= 10000: benda = "Lingkaran"
             else: benda = "Lainnya"
 
             cv2.putText(imageFrame, benda+" HIJAU", (x, y), cv2.FONT_HERSHEY_COMPLEX, 0.7, (0,255,0), 2)  
@@ -153,19 +151,15 @@ while(1):
                 rasio = w/float(h)
                 if 0.9 < rasio < 1.1: benda = "Persegi"
                 else: benda = "Persegi Panjang"
-            #elif korner == 5: benda = "Segi lima"
-            #elif korner == 6: benda = "Segi enam"
-            #elif korner == 7: benda = "Segi tujuh"
-            #elif korner == 8: benda = "Segi delapan"
-            #elif korner <= 10000: benda = "Lingkaran"
             else: benda = "Lainnya"
 
             cv2.putText(imageFrame, benda+" BIRU", (x, y), cv2.FONT_HERSHEY_COMPLEX, 0.7, (255,0,0), 2) 
     
     cv2.imshow("green_mask",green_mask)
     cv2.imshow("blue_mask", blue_mask)
-    cv2.imshow("red_mask", red_mask)
     cv2.imshow("Multiple Color Detection in Real-TIme", imageFrame)
+    cv2.imshow("hsv", hsvFrame)
+    cv2.imshow("red_mask", red_mask)
     if cv2.waitKey(10) & 0xFF == ord('q'): 
         webcam.release() 
         cv2.destroyAllWindows() 
