@@ -66,3 +66,43 @@ if __name__ == '__main__' :
     cam = cv2.VideoCapture(0)
     init_trackbars()
     main(cam)
+
+"""  
+hue saturation value
+
+yellow 
+low = [171,176,0] atau [171,182,0]
+high = [255,255,152]
+
+blue
+low = [0,0,214]
+high = [27,45,255]
+
+green
+low = [0,207,14]
+high = [184,255,255]
+
+red
+low = [241,0,0]
+high = [255,184,112]
+
+
+ini color sebelumnya (di shapeColorDetection):
+    # Set range for red color and 
+    # define mask 
+    red_lower = np.array([136, 87, 111], np.uint8) 
+    red_upper = np.array([180, 255, 255], np.uint8) 
+    red_mask = cv2.inRange(hsvFrame, red_lower, red_upper) 
+
+    # Set range for green color and 
+    # define mask 
+    green_lower = np.array([25, 52, 72], np.uint8) 
+    green_upper = np.array([102, 255, 255], np.uint8) 
+    green_mask = cv2.inRange(hsvFrame, green_lower, green_upper) 
+
+    # Set range for blue color and 
+    # define mask 
+    blue_lower = np.array([94, 80, 2], np.uint8) 
+    blue_upper = np.array([120, 255, 255], np.uint8) 
+    blue_mask = cv2.inRange(hsvFrame, blue_lower, blue_upper) 
+"""
