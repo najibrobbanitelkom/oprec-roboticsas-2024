@@ -1,4 +1,5 @@
 class Thruster: 
+
     def stop(self, a):
         print(f'nilai pwm thruster1 = {a}')
         print(f'nilai pwm thruster2 = {a}')
